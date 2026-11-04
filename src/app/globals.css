@@ -1,26 +1,176 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --paper: #f5f2ec;
+  --card: #fffdf9;
+  --ink: #1c1b18;
+  --ink-2: #57534b;
+  --ink-3: #8c867b;
+  --line: #e4ded3;
+  --line-2: #d6cfc2;
+  --allow: #1f5f4a;
+  --allow-bg: #e6f0eb;
+  --block: #b6402c;
+  --block-bg: #f8e7e2;
+  --wait: #9a6a12;
+  --wait-bg: #f7eedb;
+  --pay: #23408e;
+  --pay-bg: #e7ecf8;
+  --focus: #2f6fd6;
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
+  --color-paper: var(--paper);
+  --color-card: var(--card);
+  --color-ink: var(--ink);
+  --color-ink-2: var(--ink-2);
+  --color-ink-3: var(--ink-3);
+  --color-line: var(--line);
+  --color-line-2: var(--line-2);
+  --color-allow: var(--allow);
+  --color-allow-bg: var(--allow-bg);
+  --color-block: var(--block);
+  --color-block-bg: var(--block-bg);
+  --color-wait: var(--wait);
+  --color-wait-bg: var(--wait-bg);
+  --color-pay: var(--pay);
+  --color-pay-bg: var(--pay-bg);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+  --font-display: var(--font-display);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html,
+body {
+  background: var(--paper);
+  color: var(--ink);
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-geist-sans), system-ui, sans-serif;
+  font-feature-settings: "ss01", "cv11";
+}
+
+:focus-visible {
+  outline: 2px solid var(--focus);
+  outline-offset: 2px;
+  border-radius: 6px;
+}
+
+.display {
+  font-family: var(--font-display), Georgia, serif;
+  letter-spacing: -0.01em;
+}
+
+.num {
+  font-family: var(--font-geist-mono), ui-monospace, monospace;
+  font-variant-numeric: tabular-nums;
+}
+
+.panel {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  border-radius: 10px;
+  padding: 0.6rem 1rem;
+  font-weight: 600;
+  font-size: 0.9rem;
+  white-space: nowrap;
+  transition: background 0.15s, opacity 0.15s, transform 0.05s;
+}
+.btn:active {
+  transform: translateY(1px);
+}
+.btn:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+.btn-primary {
+  background: var(--ink);
+  color: var(--paper);
+}
+.btn-primary:hover:not(:disabled) {
+  background: #000;
+}
+.btn-ghost {
+  border: 1px solid var(--line-2);
+  color: var(--ink);
+  background: transparent;
+}
+.btn-ghost:hover:not(:disabled) {
+  background: #ece7de;
+}
+.btn-danger {
+  border: 1px solid #e3b9b0;
+  color: var(--block);
+}
+.btn-danger:hover:not(:disabled) {
+  background: var(--block-bg);
+}
+
+@keyframes pulse-dot {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.25;
+  }
+}
+.live-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 999px;
+  background: var(--allow);
+  animation: pulse-dot 1.2s ease-in-out infinite;
+}
+
+/* Motion-only entrance: content is never invisible, even if animations are paused. */
+@keyframes rise {
+  from {
+    transform: translateY(6px);
+  }
+  to {
+    transform: none;
+  }
+}
+.rise {
+  animation: rise 0.25s ease-out;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .live-dot,
+  .rise {
+    animation: none;
+  }
+}
+
+/* Braintree Drop-in: align with our palette */
+.braintree-dropin {
+  font-family: inherit !important;
+}
+[data-braintree-id="choose-a-way-to-pay"],
+[data-braintree-id="methods-label"] {
+  font-weight: 600 !important;
+}
+
+/* AG Grid theme alignment */
+.ag-theme-allowance {
+  --ag-font-family: var(--font-geist-sans), system-ui, sans-serif;
+  --ag-font-size: 13px;
+  --ag-background-color: var(--card);
+  --ag-header-background-color: #f0ebe2;
+  --ag-odd-row-background-color: #fcfaf6;
+  --ag-border-color: var(--line);
+  --ag-row-border-color: var(--line);
+  --ag-header-foreground-color: var(--ink-2);
+  --ag-foreground-color: var(--ink);
+  --ag-selected-row-background-color: #efe9de;
 }

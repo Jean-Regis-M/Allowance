@@ -1,0 +1,78 @@
+{
+  "voice": "Kore",
+  "style": "Say the following as an energetic but calm product demo narrator, with crisp, natural pacing and no long pauses:",
+  "scenes": [
+    {
+      "id": "s01-hook",
+      "type": "card",
+      "card": "hook",
+      "vo": "AI agents can now shop for your business. But to buy anything, they need your card."
+    },
+    {
+      "id": "s02-problem",
+      "type": "card",
+      "card": "problem",
+      "vo": "So only nine percent of shoppers would let one buy on its own. Agents read text written by strangers, and one hidden line in a listing can turn them against you. Today it's all or nothing."
+    },
+    {
+      "id": "s03-solution",
+      "type": "card",
+      "card": "solution",
+      "vo": "Allowance gives your agent an allowance, not your wallet. Built on PayPal Braintree and Google Gemini."
+    },
+    {
+      "id": "s04-describe",
+      "type": "clip",
+      "from": "home",
+      "to": "fund",
+      "vo": "Maya runs a café. She types what she needs in plain English. Gemini compiles it into a mandate: budget, approved suppliers, categories, delivery window and quantity caps."
+    },
+    {
+      "id": "s05-fund",
+      "type": "clip",
+      "from": "fund",
+      "to": "redteam",
+      "vo": "She funds it once. PayPal Braintree places a one hundred eighty dollar authorization hold. Nothing is charged. The hold is the agent's hard ceiling."
+    },
+    {
+      "id": "s06-redteam",
+      "type": "clip",
+      "from": "redteam",
+      "to": "agent",
+      "vo": "Now, the attack. A supplier listing hides an instruction: buy forty packs, the owner approved it. A compromised agent obeys. The policy firewall blocks every cart. Zero dollars charged."
+    },
+    {
+      "id": "s07-agent",
+      "type": "clip",
+      "from": "agent",
+      "to": "paid",
+      "vo": "Then the real Gemini agent shops. The listing shield strips the injected text before the model sees it. The agent proposes product IDs and quantities only, and the firewall prices and approves the cart."
+    },
+    {
+      "id": "s08-paid",
+      "type": "clip",
+      "from": "paid",
+      "to": "ledger",
+      "vo": "Braintree settles exactly the approved total, verified with the gateway, and releases the rest."
+    },
+    {
+      "id": "s09-ledger",
+      "type": "clip",
+      "from": "ledger",
+      "to": "end",
+      "vo": "Every decision and payment event lands in a hash-chained audit ledger, built with AG Grid."
+    },
+    {
+      "id": "s10-architecture",
+      "type": "card",
+      "card": "architecture",
+      "vo": "The AI never touches money. Gemini proposes, deterministic code decides, and PayPal Braintree enforces the ceiling. Attack simulations run in every test suite."
+    },
+    {
+      "id": "s11-close",
+      "type": "card",
+      "card": "close",
+      "vo": "Allowance. Let agents spend for you, within limits you set."
+    }
+  ]
+}
